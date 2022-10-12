@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react'
+import './assets/scss/index.scss'
+import Loading from './components/loading/Loading'
+import 'antd/dist/antd.min.css'
+import { Layout } from 'antd'
 
-function App() {
+const Home = React.lazy(async () => await import('./modules/home/Home'))
+
+const App = (): JSX.Element => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Layout>
+      <Suspense fallback={<Loading/>}>
+        <Home/>
+      </Suspense>
+    </Layout>
+  )
 }
 
-export default App;
+export default App
