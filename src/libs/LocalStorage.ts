@@ -1,3 +1,5 @@
+import UserInterface from '../interfaces'
+
 export default class LocalStorage {
   private _localStorage: Storage
 
@@ -29,12 +31,16 @@ export default class LocalStorage {
     this.localStorage.clear()
   }
 
-  public setJson (key: string, value: object): void {
+  public setUsers (key: string, value: UserInterface[]): void {
     this.setItem(key, JSON.stringify(value))
   }
 
-  public getJson (key: string): object | null {
+  public getUsers (key: string): UserInterface[] | null {
     const item = this.getItem(key)
     return (item != null) ? JSON.parse(item) : null
+  }
+
+  public hasUsers (key: string): boolean {
+    return this.getUsers(key) !== null
   }
 }

@@ -1,11 +1,25 @@
 import React from 'react'
 import { Button, Form, Input } from 'antd'
+import User from '../../../models'
+import { useNavigate } from 'react-router-dom'
+import paths from '../../../config'
+import Session from '../../../libs/Session'
 
 const { Item } = Form
 
 const FormLogin = () => {
+  const navigate = useNavigate()
+
   const onFinish = (values: any) => {
-    console.log('Success:', values)
+    const name = values.name
+
+    const user = new User()
+    user.name = name
+    user.save()
+
+    Session.autenticate(name)
+
+    navigate(paths.game.path)
   }
 
   return (
@@ -33,8 +47,8 @@ const FormLogin = () => {
 
       <Item
         wrapperCol={{
-          offset: 8,
-          span: 16
+          offset: 2,
+          span: 22
         }}
         className="mt-10"
       >
