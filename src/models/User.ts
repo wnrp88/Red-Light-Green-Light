@@ -6,7 +6,7 @@ export default class User {
   private _score: number
   private _maxScore: number
   private readonly localStorage: LocalStorage
-  private readonly KEY: string = 'users'
+  public readonly KEY: string = 'users'
 
   constructor (user?: UserInterface) {
     this.localStorage = new LocalStorage()
@@ -45,18 +45,6 @@ export default class User {
   set maxScore (value: number) {
     this._maxScore = value
   }
-
-  // public static find (name: string): null | User {
-  //   const users: UserInterface[] | null = self.localStorage.getUsers(this.KEY)
-  //   if (users != null) {
-  //     const i = users.findIndex((u: any) => u.name === name)
-  //     if (i !== undefined) {
-  //       return new User(users[i])
-  //     }
-  //   }
-  //
-  //   return null
-  // }
 
   public save () {
     const users = this.localStorage.getUsers(this.KEY)
