@@ -1,7 +1,7 @@
 @import "modules/index";
 @import "components/index";
 
-@for $i from 1 through 50 {
+@for $i from 0 through 50 {
   .mt-#{$i} {
     margin-top: #{$i}px;
   }
@@ -26,6 +26,31 @@
   }
   .pl-#{$i} {
     padding-left: #{$i}px;
+  }
+  .mti-#{$i} {
+    margin-top: #{$i}px !important;
+  }
+  .mri-#{$i} {
+    margin-right: #{$i}px !important;
+  }
+  .mbi-#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+  .mli-#{$i} {
+    margin-left: #{$i}px !important;
+  }
+
+  .pti-#{$i} {
+    padding-top: #{$i}px !important;
+  }
+  .pri-#{$i} {
+    padding-right: #{$i}px !important;
+  }
+  .pbi-#{$i} {
+    padding-bottom: #{$i}px !important;
+  }
+  .pli-#{$i} {
+    padding-left: #{$i}px !important;
   }
 }
 

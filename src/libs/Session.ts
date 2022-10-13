@@ -16,6 +16,15 @@ const Session = {
     const localStorage = new LocalStorage()
     localStorage.setItem(`${Session.KEY}-autenticate`, 'false')
     localStorage.setItem(`${Session.KEY}-name`, '')
+  },
+  getAuthenticated () {
+    const localStorage = new LocalStorage()
+    const name = localStorage.getItem(`${Session.KEY}-name`)
+
+    return {
+      name: (name != null) ? name : '',
+      autenticate: localStorage.getItem(`${Session.KEY}-autenticate`) === 'true'
+    }
   }
 }
 

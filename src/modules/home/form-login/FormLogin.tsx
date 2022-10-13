@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Form, Input } from 'antd'
 import User from '../../../models'
 import { useNavigate } from 'react-router-dom'
 import paths from '../../../config'
 import Session from '../../../libs/Session'
+import UserAutenticateContext from '../../../contexts'
 
 const { Item } = Form
 
 const FormLogin = () => {
   const navigate = useNavigate()
+  const { setUserAutenticate } = useContext(UserAutenticateContext)
 
   const onFinish = (values: any) => {
     const name = values.name
@@ -18,6 +20,10 @@ const FormLogin = () => {
     user.save()
 
     Session.autenticate(name)
+    setUserAutenticate({
+      name,
+      autenticate: true
+    })
 
     navigate(paths.game.path)
   }
