@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import paths from '../../../config'
 import Session from '../../../libs/Session'
 import UserAutenticateContext from '../../../contexts'
-import LocalStorage from '../../../libs/LocalStorage'
+import UserService from '../../../services/UserService'
 
 const { Item } = Form
 
@@ -16,9 +16,7 @@ const FormLogin = () => {
   const onFinish = (values: any) => {
     const name = values.name
 
-    const localStorage = new LocalStorage()
-    const registeredUser = localStorage.findUser(name)
-    console.log(registeredUser)
+    const registeredUser = UserService.findUser(name)
     if (registeredUser === null) {
       const user = new User()
       user.name = name

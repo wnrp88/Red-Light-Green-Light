@@ -1,17 +1,15 @@
-import LocalStorage from '../libs/LocalStorage'
 import UserInterface from '../interfaces'
+import UserService from '../services/UserService'
 
 export default class User {
   private _name: string
   private _score: number
   private _maxScore: number
-  private readonly localStorage: LocalStorage
+  private readonly userService = UserService
   public readonly KEY: string = 'users'
 
   constructor (user?: UserInterface) {
-    this.localStorage = new LocalStorage()
-
-    if (user != null) {
+    if (user) {
       this._name = user.name
       this._score = user.score
       this._maxScore = user.maxScore
@@ -69,20 +67,7 @@ export default class User {
   }
 
   public save () {
-    const users = this.localStorage.getUsers(this.KEY)
-    if (users != null) {
-      const i = users?.findIndex((u: any) => u.name === this.name)
-      if (i !== -1) {
-        users[i] = this.toJson()
-      } else {
-        users.push(this.toJson())
-      }
-      this.localStorage.setUsers(this.KEY, [...users])
-    } else {
-      const users: UserInterface[] = []
-      users.push(this.toJson())
-      this.localStorage.setUsers(this.KEY, users)
-    }
+    this.userService.save(this)
   }
 
   public toJson (): UserInterface {

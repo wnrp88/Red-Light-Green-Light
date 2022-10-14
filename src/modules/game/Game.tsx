@@ -4,11 +4,11 @@ import Session from '../../libs/Session'
 import paths from '../../config'
 import { Col, Layout, Row, Typography } from 'antd'
 import UserAutenticateContext from '../../contexts'
-import LocalStorage from '../../libs/LocalStorage'
 import User from '../../models'
 import TrafficLight from './traffic-light/TrafficLight'
 import Walk from './walk/Walk'
 import Header from '../../components/header/Header'
+import UserService from '../../services/UserService'
 
 const {
   Content
@@ -17,8 +17,7 @@ const { Title } = Typography
 
 const Game = () => {
   const { session } = useContext(UserAutenticateContext)
-  const localStorage = new LocalStorage()
-  const registeredUser = localStorage.findUser(session.name)
+  const registeredUser = UserService.findUser(session.name)
   const [trafficLight, setTrafficLight] = useState(false)
   const [user, setUser] = useState<User>((registeredUser as User))
 

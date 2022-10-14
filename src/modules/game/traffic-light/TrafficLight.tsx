@@ -8,9 +8,14 @@ const TrafficLight = (props: TrafficLightInterface) => {
     trafficLight,
     setTrafficLight
   } = props
-  const timeTrafficLightRed = 3000
 
-  const calcTrafficLightGreen = (score: number): number => Math.max(10000 - score * 100, 2000) + Functions.round(-1500, 1500)
+  const timeTrafficLightRed = 3000
+  const greenLightMaxDuration = 10000
+  const greenLightMinDuration = 2000
+  const greenLightDecrementByScore = 100
+  const greenLightRandomTime = 1500
+
+  const calcTrafficLightGreen = (score: number): number => Math.max(greenLightMaxDuration - score * greenLightDecrementByScore, greenLightMinDuration) + Functions.random(greenLightRandomTime * -1, greenLightRandomTime)
 
   const changeGame = (time: number) => {
     return setTimeout(() => {
@@ -27,7 +32,9 @@ const TrafficLight = (props: TrafficLightInterface) => {
       timeout = changeGame(timeTrafficLightGreen)
     }
     return () => {
-      timeout !== null && clearTimeout(timeout)
+      if (timeout !== null) {
+        clearTimeout(timeout)
+      }
     }
   }, [trafficLight])
 

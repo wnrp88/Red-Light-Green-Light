@@ -1,6 +1,3 @@
-import UserInterface from '../interfaces'
-import User from '../models'
-
 export default class LocalStorage {
   private _localStorage: Storage
 
@@ -30,32 +27,5 @@ export default class LocalStorage {
 
   public clear (): void {
     this.localStorage.clear()
-  }
-
-  public setUsers (key: string, value: UserInterface[]): void {
-    this.setItem(key, JSON.stringify(value))
-  }
-
-  public getUsers (key: string): UserInterface[] | null {
-    const item = this.getItem(key)
-    return (item != null) ? JSON.parse(item) : null
-  }
-
-  public hasUsers (key: string): boolean {
-    return this.getUsers(key) !== null
-  }
-
-  public findUser (name: string): null | User {
-    const user = new User()
-    const users: UserInterface[] | null = this.getUsers(user.KEY)
-
-    if (users != null) {
-      const i = users.findIndex((u: any) => u.name === name)
-      if (i >= 0) {
-        return new User(users[i])
-      }
-    }
-
-    return null
   }
 }

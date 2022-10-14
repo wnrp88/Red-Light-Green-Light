@@ -1,56 +1,22 @@
 @import "modules/index";
 @import "components/index";
 
+$positions: (t:top, r:right, b:bottom, l:left);
+
 @for $i from 0 through 50 {
-  .mt-#{$i} {
-    margin-top: #{$i}px;
-  }
-  .mr-#{$i} {
-    margin-right: #{$i}px;
-  }
-  .mb-#{$i} {
-    margin-bottom: #{$i}px;
-  }
-  .ml-#{$i} {
-    margin-left: #{$i}px;
-  }
-
-  .pt-#{$i} {
-    padding-top: #{$i}px;
-  }
-  .pr-#{$i} {
-    padding-right: #{$i}px;
-  }
-  .pb-#{$i} {
-    padding-bottom: #{$i}px;
-  }
-  .pl-#{$i} {
-    padding-left: #{$i}px;
-  }
-  .mti-#{$i} {
-    margin-top: #{$i}px !important;
-  }
-  .mri-#{$i} {
-    margin-right: #{$i}px !important;
-  }
-  .mbi-#{$i} {
-    margin-bottom: #{$i}px !important;
-  }
-  .mli-#{$i} {
-    margin-left: #{$i}px !important;
-  }
-
-  .pti-#{$i} {
-    padding-top: #{$i}px !important;
-  }
-  .pri-#{$i} {
-    padding-right: #{$i}px !important;
-  }
-  .pbi-#{$i} {
-    padding-bottom: #{$i}px !important;
-  }
-  .pli-#{$i} {
-    padding-left: #{$i}px !important;
+  @each $index, $position in $positions {
+    .m#{$index}-#{$i} {
+      margin-#{$position}: #{$i}px;
+    }
+    .m#{$index}i-#{$i} {
+      margin-#{$position}: #{$i}px !important;
+    }
+    .p#{$index}-#{$i} {
+      padding-#{$position}: #{$i}px;
+    }
+    .p#{$index}i-#{$i} {
+      padding-#{$position}: #{$i}px !important;
+    }
   }
 }
 

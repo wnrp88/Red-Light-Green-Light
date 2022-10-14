@@ -5,7 +5,7 @@ const Session = {
   isAutenticate: (): boolean => {
     const localStorage = new LocalStorage()
     const autentiate = localStorage.getItem(`${Session.KEY}-autenticate`)
-    return autentiate != null && autentiate === 'true'
+    return autentiate !== null && autentiate === 'true'
   },
   autenticate: (name: string): void => {
     const localStorage = new LocalStorage()
@@ -22,7 +22,7 @@ const Session = {
     const name = localStorage.getItem(`${Session.KEY}-name`)
 
     return {
-      name: (name != null) ? name : '',
+      name: (name !== null) ? name : '',
       autenticate: localStorage.getItem(`${Session.KEY}-autenticate`) === 'true'
     }
   }
