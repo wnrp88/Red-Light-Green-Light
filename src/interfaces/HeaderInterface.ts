@@ -1,5 +1,5 @@
 interface HeaderInterface {
-  name: string
+  text: string
 }
 
 export default HeaderInterface

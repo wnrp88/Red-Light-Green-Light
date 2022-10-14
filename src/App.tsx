@@ -27,6 +27,7 @@ const App = (): JSX.Element => {
             <Routes>
               <Route path={paths.home.path} element={<paths.home.component/>}/>
               <Route path={paths.game.path} element={<paths.game.component/>}/>
+              <Route path={paths.ranking.path} element={<paths.ranking.component/>}/>
               <Route path="*" element={<NoMatch/>}/>
             </Routes>
           </BrowserRouter>

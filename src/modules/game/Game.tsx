@@ -27,7 +27,7 @@ const Game = () => {
 
   return (
     <>
-      <Header name={user.name}/>
+      <Header text={`Hi ${user.name}`}/>
 
       <Content>
         <Row justify="center">

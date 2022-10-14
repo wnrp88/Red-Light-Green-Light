@@ -7,7 +7,7 @@ const { Header: HeaderAntd } = Layout
 const { Title } = Typography
 
 const Header = (props: HeaderInterface) => {
-  const { name } = props
+  const { text } = props
 
   return (
     <HeaderAntd className="header">
@@ -17,7 +17,7 @@ const Header = (props: HeaderInterface) => {
             level={4}
             className="title mbi-0"
           >
-            Hi {name}
+            {text}
           </Title>
         </Col>
 
