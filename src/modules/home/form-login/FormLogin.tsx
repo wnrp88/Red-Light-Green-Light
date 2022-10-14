@@ -18,6 +18,7 @@ const FormLogin = () => {
 
     const localStorage = new LocalStorage()
     const registeredUser = localStorage.findUser(name)
+    console.log(registeredUser)
     if (registeredUser === null) {
       const user = new User()
       user.name = name

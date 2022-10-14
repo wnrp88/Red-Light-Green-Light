@@ -51,7 +51,7 @@ export default class LocalStorage {
 
     if (users != null) {
       const i = users.findIndex((u: any) => u.name === name)
-      if (i !== undefined) {
+      if (i >= 0) {
         return new User(users[i])
       }
     }
