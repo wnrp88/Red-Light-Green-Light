@@ -36,6 +36,28 @@ export default class User {
 
   set score (value: number) {
     this._score = value
+
+    if (value > this.maxScore) {
+      this.maxScore = value
+      this.save()
+    }
+  }
+
+  public toWalk (): void {
+    this.score = this.score + 1
+    this.save()
+  }
+
+  public backWalk (): void {
+    if (this.score > 0) {
+      this.score = this.score - 1
+      this.save()
+    }
+  }
+
+  public lost (): void {
+    this.score = 0
+    this.save()
   }
 
   get maxScore (): number {
@@ -63,7 +85,7 @@ export default class User {
     }
   }
 
-  private toJson (): UserInterface {
+  public toJson (): UserInterface {
     return {
       name: this.name,
       score: this.score,

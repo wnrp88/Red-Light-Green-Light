@@ -31,7 +31,14 @@ const Home = () => {
         align="middle"
         justify="center"
       >
-        <Col className="mt-20">
+        <Col
+          className="mt-20"
+          xs={18}
+          sm={16}
+          md={12}
+          lg={6}
+          xl={4}
+        >
           <FormLogin/>
         </Col>
       </Row>

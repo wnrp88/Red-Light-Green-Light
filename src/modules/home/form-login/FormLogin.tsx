@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import paths from '../../../config'
 import Session from '../../../libs/Session'
 import UserAutenticateContext from '../../../contexts'
+import LocalStorage from '../../../libs/LocalStorage'
 
 const { Item } = Form
 
@@ -15,9 +16,13 @@ const FormLogin = () => {
   const onFinish = (values: any) => {
     const name = values.name
 
-    const user = new User()
-    user.name = name
-    user.save()
+    const localStorage = new LocalStorage()
+    const registeredUser = localStorage.findUser(name)
+    if (registeredUser === null) {
+      const user = new User()
+      user.name = name
+      user.save()
+    }
 
     Session.autenticate(name)
     setUserAutenticate({
@@ -30,10 +35,7 @@ const FormLogin = () => {
 
   return (
     <Form
-      name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      initialValues={{ remember: true }}
+      name="login"
       onFinish={onFinish}
       autoComplete="off"
     >
@@ -52,10 +54,6 @@ const FormLogin = () => {
       </Item>
 
       <Item
-        wrapperCol={{
-          offset: 2,
-          span: 22
-        }}
         className="mt-10"
       >
         <Button
