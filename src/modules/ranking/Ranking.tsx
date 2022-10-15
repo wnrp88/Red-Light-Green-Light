@@ -29,7 +29,7 @@ const Ranking = () => {
     <>
       <Header text={'Ranking'}/>
 
-      <Row justify="center" className="mt-50">
+      <Row justify="center" className="mt-20">
         <Col>
           <Table
             columns={columns}

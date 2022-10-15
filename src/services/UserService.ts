@@ -1,5 +1,5 @@
 import UserInterface from '../interfaces'
-import User from '../models'
+import User from '../models/User'
 import LocalStorage from '../libs/LocalStorage'
 
 const UserService = {
