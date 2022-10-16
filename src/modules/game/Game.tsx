@@ -62,7 +62,6 @@ const Game = () => {
         <Row justify="center" className="mt-10" gutter={[5, 5]}>
           <Walk
             trafficLight={trafficLight}
-            setTrafficLight={setTrafficLight}
             user={user}
             setUser={setUser}
           />

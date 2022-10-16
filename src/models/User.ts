@@ -6,18 +6,29 @@ export default class User {
   private _score: number
   private _maxScore: number
   private readonly userService = UserService
-  public readonly KEY: string = 'users'
+  public readonly STORAGE_KEY: string = 'users'
+  private _key: string
 
   constructor (user?: UserInterface) {
     if (user) {
       this._name = user.name
+      this._key = user.name
       this._score = user.score
       this._maxScore = user.maxScore
     } else {
       this._name = ''
+      this._key = ''
       this._score = 0
       this._maxScore = 0
     }
+  }
+
+  get key (): string {
+    return this._key
+  }
+
+  set key (value: string) {
+    this._key = value
   }
 
   get name (): string {

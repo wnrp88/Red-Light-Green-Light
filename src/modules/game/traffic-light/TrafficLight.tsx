@@ -39,8 +39,8 @@ const TrafficLight = (props: TrafficLightInterface) => {
   }, [trafficLight])
 
   return trafficLight
-    ? <img src="/images/Traffic_Light_Green_clip_art.svg" className="img-traffic-light"/>
-    : <img src="/images/Traffic_Light_Red_clip_art.svg" className="img-traffic-light"/>
+    ? <img src="/images/Traffic_Light_Green_clip_art.svg" className="img-traffic-light light-green"/>
+    : <img src="/images/Traffic_Light_Red_clip_art.svg" className="img-traffic-light light-red"/>
 }
 
 export default TrafficLight

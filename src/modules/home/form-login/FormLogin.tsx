@@ -15,8 +15,9 @@ const FormLogin = () => {
 
   const onFinish = (values: any) => {
     const name = values.name
-
+    console.log('name', name)
     const registeredUser = UserService.findUser(name)
+    console.log(registeredUser)
     if (registeredUser === null) {
       const user = new User()
       user.name = name
@@ -59,6 +60,7 @@ const FormLogin = () => {
           type="primary"
           htmlType="submit"
           block
+          className="btn-join"
         >
           JOIN
         </Button>

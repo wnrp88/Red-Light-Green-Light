@@ -31,6 +31,7 @@ const Walk = (props: WalkInterface) => {
           type="primary"
           icon={<img className="icon-feet" src="/images/feet_left.png"/>}
           onClick={() => nextStep('left')}
+          className="btn-next-step-left"
         >
           LEFT
         </Button>
@@ -40,6 +41,7 @@ const Walk = (props: WalkInterface) => {
           type="primary"
           icon={<img className="icon-feet" src="/images/feet_right.png"/>}
           onClick={() => nextStep('right')}
+          className="btn-next-step-right"
         >
           RIGHT
         </Button>

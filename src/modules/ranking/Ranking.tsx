@@ -8,7 +8,7 @@ import Header from '../../components/header/Header'
 
 const Ranking = () => {
   const user = new User()
-  const users = UserService.getUsers(user.KEY)
+  const users = UserService.getUsers(user.STORAGE_KEY)
 
   const columns: ColumnsType<UserInterface> = [
     {
@@ -35,6 +35,7 @@ const Ranking = () => {
             columns={columns}
             dataSource={users as UserInterface[]}
             pagination={false}
+            rowKey={'name'}
           />
         </Col>
       </Row>

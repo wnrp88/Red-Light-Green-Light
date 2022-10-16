@@ -6,7 +6,7 @@ const UserService = {
   localStorage: new LocalStorage(),
 
   save: (user: User) => {
-    const users = UserService.getUsers(user.KEY)
+    const users = UserService.getUsers(user.STORAGE_KEY)
     if (users !== null) {
       const i = users?.findIndex((u: any) => u.name === user.name)
       if (i >= 0) {
@@ -14,17 +14,17 @@ const UserService = {
       } else {
         users.push(user.toJson())
       }
-      UserService.setUsers(user.KEY, [...users])
+      UserService.setUsers(user.STORAGE_KEY, [...users])
     } else {
       const users: UserInterface[] = []
       users.push(user.toJson())
-      UserService.setUsers(user.KEY, users)
+      UserService.setUsers(user.STORAGE_KEY, users)
     }
   },
 
   findUser: (name: string): null | User => {
     const user = new User()
-    const users: UserInterface[] | null = UserService.getUsers(user.KEY)
+    const users: UserInterface[] | null = UserService.getUsers(user.STORAGE_KEY)
 
     if (users !== null) {
       const i = users.findIndex((u: any) => u.name === name)
