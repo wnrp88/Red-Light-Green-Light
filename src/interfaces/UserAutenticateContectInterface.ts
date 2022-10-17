@@ -3,4 +3,4 @@ interface UserAutenticateContectInterface {
   autenticate: boolean
 }
 
-export default UserAutenticateContectInterface
+export default UserAutenticateContectInterface;

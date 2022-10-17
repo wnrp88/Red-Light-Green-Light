@@ -1,3 +1,3 @@
-import UserAutenticateContext from './UserAutenticateContext'
+import UserAutenticateContext from './UserAutenticateContext';
 
-export default UserAutenticateContext
+export default UserAutenticateContext;

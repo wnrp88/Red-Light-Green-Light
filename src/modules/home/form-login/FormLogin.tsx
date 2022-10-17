@@ -1,37 +1,37 @@
-import React, { useContext } from 'react'
-import { Button, Form, Input } from 'antd'
-import User from '../../../models'
-import { useNavigate } from 'react-router-dom'
-import paths from '../../../config'
-import Session from '../../../libs/Session'
-import UserAutenticateContext from '../../../contexts'
-import UserService from '../../../services/UserService'
+import React, { useContext } from 'react';
+import { Button, Form, Input } from 'antd';
+import User from '../../../models';
+import { useNavigate } from 'react-router-dom';
+import paths from '../../../config';
+import Session from '../../../libs/Session';
+import UserAutenticateContext from '../../../contexts';
+import UserService from '../../../services/UserService';
 
-const { Item } = Form
+const { Item } = Form;
 
 const FormLogin = () => {
-  const navigate = useNavigate()
-  const { setUserAutenticate } = useContext(UserAutenticateContext)
+  const navigate = useNavigate();
+  const { setUserAutenticate } = useContext(UserAutenticateContext);
 
   const onFinish = (values: any) => {
-    const name = values.name
-    console.log('name', name)
-    const registeredUser = UserService.findUser(name)
-    console.log(registeredUser)
+    const name = values.name;
+    console.log('name', name);
+    const registeredUser = UserService.findUser(name);
+    console.log(registeredUser);
     if (registeredUser === null) {
-      const user = new User()
-      user.name = name
-      user.save()
+      const user = new User();
+      user.name = name;
+      user.save();
     }
 
-    Session.autenticate(name)
+    Session.autenticate(name);
     setUserAutenticate({
       name,
       autenticate: true
-    })
+    });
 
-    navigate(paths.game.path)
-  }
+    navigate(paths.game.path);
+  };
 
   return (
     <Form
@@ -66,7 +66,7 @@ const FormLogin = () => {
         </Button>
       </Item>
     </Form>
-  )
-}
+  );
+};
 
-export default FormLogin
+export default FormLogin;

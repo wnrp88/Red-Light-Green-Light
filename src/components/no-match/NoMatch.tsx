@@ -1,10 +1,10 @@
-import React from 'react'
-import { Button, Result } from 'antd'
-import { useNavigate } from 'react-router-dom'
-import paths from '../../config'
+import React from 'react';
+import { Button, Result } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import paths from '../../config';
 
 const NoMatch = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <Result
@@ -20,7 +20,7 @@ const NoMatch = () => {
         </Button>
       }
     />
-  )
-}
+  );
+};
 
-export default NoMatch
+export default NoMatch;

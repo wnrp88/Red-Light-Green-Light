@@ -1,28 +1,28 @@
-import React, { useContext, useState } from 'react'
-import { Navigate } from 'react-router-dom'
-import Session from '../../libs/Session'
-import paths from '../../config'
-import { Col, Layout, Row, Typography } from 'antd'
-import UserAutenticateContext from '../../contexts'
-import User from '../../models'
-import TrafficLight from './traffic-light/TrafficLight'
-import Walk from './walk/Walk'
-import Header from '../../components/header/Header'
-import UserService from '../../services/UserService'
+import React, { useContext, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import Session from '../../libs/Session';
+import paths from '../../config';
+import { Col, Layout, Row, Typography } from 'antd';
+import UserAutenticateContext from '../../contexts';
+import User from '../../models';
+import TrafficLight from './traffic-light/TrafficLight';
+import Walk from './walk/Walk';
+import Header from '../../components/header/Header';
+import UserService from '../../services/UserService';
 
 const {
   Content
-} = Layout
-const { Title } = Typography
+} = Layout;
+const { Title } = Typography;
 
 const Game = () => {
-  const { session } = useContext(UserAutenticateContext)
-  const registeredUser = UserService.findUser(session.name)
-  const [trafficLight, setTrafficLight] = useState(false)
-  const [user, setUser] = useState<User>((registeredUser as User))
+  const { session } = useContext(UserAutenticateContext);
+  const registeredUser = UserService.findUser(session.name);
+  const [trafficLight, setTrafficLight] = useState(false);
+  const [user, setUser] = useState<User>((registeredUser as User));
 
   if (!Session.isAutenticate() || registeredUser === null) {
-    return <Navigate to={paths.home.path}/>
+    return <Navigate to={paths.home.path}/>;
   }
 
   return (
@@ -68,7 +68,7 @@ const Game = () => {
         </Row>
       </Content>
     </>
-  )
-}
+  );
+};
 
-export default Game
+export default Game;

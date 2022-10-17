@@ -4,4 +4,4 @@ interface UserInterface {
   maxScore: number
 }
 
-export default UserInterface
+export default UserInterface;

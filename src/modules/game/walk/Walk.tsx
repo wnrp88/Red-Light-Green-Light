@@ -1,28 +1,28 @@
-import React, { useState } from 'react'
-import { Button, Col } from 'antd'
-import { WalkInterface } from '../../../interfaces'
-import User from '../../../models'
+import React, { useState } from 'react';
+import { Button, Col } from 'antd';
+import { WalkInterface } from '../../../interfaces';
+import User from '../../../models';
 
 const Walk = (props: WalkInterface) => {
   const {
     trafficLight,
     user,
     setUser
-  } = props
-  const [prevStep, setPrevStep] = useState('')
+  } = props;
+  const [prevStep, setPrevStep] = useState('');
 
   const nextStep = (step: string) => {
     if (prevStep !== step && trafficLight) {
-      user.toWalk()
+      user.toWalk();
     } else if (prevStep === step && trafficLight) {
-      user.backWalk()
+      user.backWalk();
     } else {
-      user.lost()
+      user.lost();
     }
 
-    setPrevStep(step)
-    setUser(new User(user.toJson()))
-  }
+    setPrevStep(step);
+    setUser(new User(user.toJson()));
+  };
 
   return (
     <>
@@ -47,7 +47,7 @@ const Walk = (props: WalkInterface) => {
         </Button>
       </Col>
     </>
-  )
-}
+  );
+};
 
-export default Walk
+export default Walk;

@@ -1,14 +1,14 @@
-import React from 'react'
-import { Col, Row, Table } from 'antd'
-import UserService from '../../services/UserService'
-import User from '../../models'
-import UserInterface from '../../interfaces'
-import type { ColumnsType } from 'antd/es/table'
-import Header from '../../components/header/Header'
+import React from 'react';
+import { Col, Row, Table } from 'antd';
+import UserService from '../../services/UserService';
+import User from '../../models';
+import UserInterface from '../../interfaces';
+import type { ColumnsType } from 'antd/es/table';
+import Header from '../../components/header/Header';
 
 const Ranking = () => {
-  const user = new User()
-  const users = UserService.getUsers(user.STORAGE_KEY)
+  const user = new User();
+  const users = UserService.getUsers(user.STORAGE_KEY);
 
   const columns: ColumnsType<UserInterface> = [
     {
@@ -23,7 +23,7 @@ const Ranking = () => {
       width: 170,
       sorter: (a, b) => a.maxScore - b.maxScore
     }
-  ]
+  ];
 
   return (
     <>
@@ -40,7 +40,7 @@ const Ranking = () => {
         </Col>
       </Row>
     </>
-  )
-}
+  );
+};
 
-export default Ranking
+export default Ranking;

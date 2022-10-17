@@ -1,13 +1,13 @@
-import React from 'react'
-import { act } from 'react-dom/test-utils'
-import { render, screen } from '@testing-library/react'
-import FormLogin from './FormLogin'
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
+import FormLogin from './FormLogin';
 
-const mockedUsedNavigate = jest.fn()
+const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => mockedUsedNavigate
-}))
+}));
 
 beforeEach(() => {
   Object.defineProperty(window, 'matchMedia', {
@@ -22,16 +22,16 @@ beforeEach(() => {
       removeEventListener: jest.fn(),
       dispatchEvent: jest.fn()
     }))
-  })
-})
+  });
+});
 
 it('render FormLogin', () => {
   act(() => {
-    render(<FormLogin/>)
-  })
-  const name = screen.getByLabelText('Name')
-  expect(name).toBeInTheDocument()
+    render(<FormLogin/>);
+  });
+  const name = screen.getByLabelText('Name');
+  expect(name).toBeInTheDocument();
 
-  const btnJoin = document.querySelector('button.btn-join')
-  expect(btnJoin?.textContent).toBe('JOIN')
-})
+  const btnJoin = document.querySelector('button.btn-join');
+  expect(btnJoin?.textContent).toBe('JOIN');
+});

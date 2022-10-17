@@ -1,12 +1,12 @@
-import React from 'react'
-import { Button, Col, Layout, Row, Typography } from 'antd'
-import { PlayCircleOutlined } from '@ant-design/icons'
-import FormLogin from './form-login/FormLogin'
-import { Link } from 'react-router-dom'
-import paths from '../../config'
+import React from 'react';
+import { Button, Col, Layout, Row, Typography } from 'antd';
+import { PlayCircleOutlined } from '@ant-design/icons';
+import FormLogin from './form-login/FormLogin';
+import { Link } from 'react-router-dom';
+import paths from '../../config';
 
-const { Content } = Layout
-const { Title } = Typography
+const { Content } = Layout;
+const { Title } = Typography;
 
 const Home = () => {
   return (
@@ -66,7 +66,7 @@ const Home = () => {
         </Col>
       </Row>
     </Content>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,8 +1,8 @@
-import React from 'react'
-import { act } from 'react-dom/test-utils'
-import { render, screen } from '@testing-library/react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import Home from './Home'
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Home from './Home';
 
 beforeEach(() => {
   Object.defineProperty(window, 'matchMedia', {
@@ -17,8 +17,8 @@ beforeEach(() => {
       removeEventListener: jest.fn(),
       dispatchEvent: jest.fn()
     }))
-  })
-})
+  });
+});
 
 it('render Home', () => {
   act(() => {
@@ -26,12 +26,12 @@ it('render Home', () => {
       <Router>
         <Home/>
       </Router>
-    )
-  })
+    );
+  });
 
-  const name = screen.getByLabelText('Name')
-  expect(name).toBeInTheDocument()
+  const name = screen.getByLabelText('Name');
+  expect(name).toBeInTheDocument();
 
-  const btnJoin = document.querySelector('button.btn-join')
-  expect(btnJoin?.textContent).toBe('JOIN')
-})
+  const btnJoin = document.querySelector('button.btn-join');
+  expect(btnJoin?.textContent).toBe('JOIN');
+});

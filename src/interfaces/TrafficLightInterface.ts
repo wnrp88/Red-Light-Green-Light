@@ -4,4 +4,4 @@ interface TrafficLightInterface {
   setTrafficLight: (trafficLight: boolean) => void
 }
 
-export default TrafficLightInterface
+export default TrafficLightInterface;

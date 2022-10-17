@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-const Home = React.lazy(async () => await import('../modules/home/Home'))
-const Game = React.lazy(async () => await import('../modules/game/Game'))
-const Ranking = React.lazy(async () => await import('../modules/ranking/Ranking'))
+const Home = React.lazy(async () => await import('../modules/home/Home'));
+const Game = React.lazy(async () => await import('../modules/game/Game'));
+const Ranking = React.lazy(async () => await import('../modules/ranking/Ranking'));
 
 const paths = {
   home: {
@@ -17,6 +17,6 @@ const paths = {
     path: '/ranking',
     component: Ranking
   }
-}
+};
 
-export default paths
+export default paths;

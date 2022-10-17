@@ -8,18 +8,12 @@ $positions: (t:top, r:right, b:bottom, l:left);
     .m#{$index}-#{$i} {
       margin-#{$position}: #{$i}px;
     }
-    .m#{$index}i-#{$i} {
-      margin-#{$position}: #{$i}px !important;
-    }
     .p#{$index}-#{$i} {
       padding-#{$position}: #{$i}px;
-    }
-    .p#{$index}i-#{$i} {
-      padding-#{$position}: #{$i}px !important;
     }
   }
 }
 
 body {
-  background-color: #F0F2F5 !important;
+  background-color: #F0F2F5;
 }

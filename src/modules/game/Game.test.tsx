@@ -1,11 +1,11 @@
-import React from 'react'
-import { act } from 'react-dom/test-utils'
-import { render, screen } from '@testing-library/react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import Game from './Game'
-import User from '../../models'
-import Session from '../../libs/Session'
-import UserAutenticateContext, { session } from '../../contexts/UserAutenticateContext'
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Game from './Game';
+import User from '../../models';
+import Session from '../../libs/Session';
+import UserAutenticateContext, { session } from '../../contexts/UserAutenticateContext';
 
 beforeEach(() => {
   Object.defineProperty(window, 'matchMedia', {
@@ -20,19 +20,19 @@ beforeEach(() => {
       removeEventListener: jest.fn(),
       dispatchEvent: jest.fn()
     }))
-  })
-})
+  });
+});
 
 it('render Game', () => {
-  const name = 'user'
-  const user = new User()
-  user.name = name
-  user.save()
+  const name = 'user';
+  const user = new User();
+  user.name = name;
+  user.save();
 
-  session.name = name
-  session.autenticate = true
+  session.name = name;
+  session.autenticate = true;
 
-  Session.autenticate(name)
+  Session.autenticate(name);
 
   act(() => {
     render(
@@ -45,13 +45,13 @@ it('render Game', () => {
           <Game/>
         </Router>
       </UserAutenticateContext.Provider>
-    )
-  })
+    );
+  });
 
-  const textHighScore = screen.getByText(/High Score/i)
-  expect(textHighScore).toBeInTheDocument()
-  const btnRight = document.querySelector('button.btn-next-step-right')
-  expect(btnRight?.textContent).toBe('RIGHT')
-  const btnLeft = document.querySelector('button.btn-next-step-left')
-  expect(btnLeft?.textContent).toBe('LEFT')
-})
+  const textHighScore = screen.getByText(/High Score/i);
+  expect(textHighScore).toBeInTheDocument();
+  const btnRight = document.querySelector('button.btn-next-step-right');
+  expect(btnRight?.textContent).toBe('RIGHT');
+  const btnLeft = document.querySelector('button.btn-next-step-left');
+  expect(btnLeft?.textContent).toBe('LEFT');
+});

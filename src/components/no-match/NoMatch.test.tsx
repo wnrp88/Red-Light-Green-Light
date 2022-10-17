@@ -1,13 +1,13 @@
-import React from 'react'
-import { act } from 'react-dom/test-utils'
-import { render, screen } from '@testing-library/react'
-import NoMatch from './NoMatch'
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
+import NoMatch from './NoMatch';
 
-const mockedUsedNavigate = jest.fn()
+const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => mockedUsedNavigate
-}))
+}));
 
 beforeEach(() => {
   Object.defineProperty(window, 'matchMedia', {
@@ -22,14 +22,14 @@ beforeEach(() => {
       removeEventListener: jest.fn(),
       dispatchEvent: jest.fn()
     }))
-  })
-})
+  });
+});
 
 it('render NoMatch', () => {
   act(() => {
-    render(<NoMatch/>)
-  })
+    render(<NoMatch/>);
+  });
 
-  const text = screen.getByText('Back Home')
-  expect(text).toBeInTheDocument()
-})
+  const text = screen.getByText('Back Home');
+  expect(text).toBeInTheDocument();
+});

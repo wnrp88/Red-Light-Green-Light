@@ -1,5 +1,10 @@
 # Getting Started the game red light, green light
 
+## Example
+
+[Play the game](https://wrcredlightgreenlight.netlify.app)  
+https://wrcredlightgreenlight.netlify.app
+
 ## Install dependencies
 
 ### `npm install`

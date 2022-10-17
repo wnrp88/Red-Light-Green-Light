@@ -1,12 +1,12 @@
-import React from 'react'
-import { Spin } from 'antd'
+import React from 'react';
+import { Spin } from 'antd';
 
 const Loading = (): JSX.Element => {
   return (
     <div className="loading-spin">
       <Spin />
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

@@ -1,13 +1,13 @@
-import React from 'react'
-import { HeaderInterface } from '../../interfaces'
-import { Col, Row, Layout, Typography } from 'antd'
-import Logout from '../logout/Logout'
+import React from 'react';
+import { HeaderInterface } from '../../interfaces';
+import { Col, Row, Layout, Typography } from 'antd';
+import Logout from '../logout/Logout';
 
-const { Header: HeaderAntd } = Layout
-const { Title } = Typography
+const { Header: HeaderAntd } = Layout;
+const { Title } = Typography;
 
 const Header = (props: HeaderInterface) => {
-  const { text } = props
+  const { text } = props;
 
   return (
     <HeaderAntd className="header">
@@ -15,7 +15,7 @@ const Header = (props: HeaderInterface) => {
         <Col flex="auto">
           <Title
             level={4}
-            className="title mbi-0"
+            className="title mb-0"
           >
             {text}
           </Title>
@@ -26,7 +26,7 @@ const Header = (props: HeaderInterface) => {
         </Col>
       </Row>
     </HeaderAntd>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

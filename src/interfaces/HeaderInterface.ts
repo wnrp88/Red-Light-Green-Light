@@ -2,4 +2,4 @@ interface HeaderInterface {
   text: string
 }
 
-export default HeaderInterface
+export default HeaderInterface;

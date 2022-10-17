@@ -1,4 +1,4 @@
-import User from '../models'
+import User from '../models';
 
 interface WalkInterface {
   trafficLight: boolean
@@ -6,4 +6,4 @@ interface WalkInterface {
   setUser: (user: User) => void
 }
 
-export default WalkInterface
+export default WalkInterface;
