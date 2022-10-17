@@ -1,5 +1,9 @@
 # Getting Started the game red light, green light
 
+## Install dependencies
+
+### `npm install`
+
 ## Available Scripts
 
 In the project directory, you can run:
